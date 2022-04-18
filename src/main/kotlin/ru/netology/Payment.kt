@@ -26,8 +26,8 @@ class Payment(private val paymentSystem: PaymentSystem) {
     }
 
     private fun payByMasterCardOrMaestro(money: Int, lastPay: Int): Int {
-        return if (lastPay + money < LIMIT_MASTER_MAESTRO && money * REFORMAT_RUBLE > MIN_PAY_MASTER_MAESTRO) MIN_COMMISSION
-        else (money * REFORMAT_RUBLE * PERCENT_MASTER_MAESTRO).toInt() + COMMISSION_MASTER_MAESTRO
+        return if (lastPay + money * REFORMAT_RUBLE < LIMIT_MASTER_MAESTRO && money * REFORMAT_RUBLE > MIN_PAY_MASTER_MAESTRO) MIN_COMMISSION
+        else (money * REFORMAT_RUBLE * PERCENT_MASTER_MAESTRO).toInt()
     }
 
     private fun payByVKPay(money: Int, lastPay: Int): Int {
