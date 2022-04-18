@@ -11,7 +11,7 @@ class PaymentTest {
         val money = 200
         val paymentSystem = PaymentSystem.MasterCard
         val payment = Payment(paymentSystem)
-        val expectedCommission = 140
+        val expectedCommission = 130
         val commission = payment.pay(money, lastPay, paymentSystem)
         assertEquals(expectedCommission, format(commission))
     }
